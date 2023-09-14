@@ -1,19 +1,20 @@
 {
-  "output": "DP-2",
+  //"output": "DP-1",
   "layer": "top",
   "position": "top",
-  "height": 40,
+  "height": 50,
   "spacing": 4,
   "exclusive": true,
   "gtk-layer-shell": true,
   "passthrough": false,
   "fixed-center": true,
-  "modules-left": ["wlr/workspaces", "hyprland/window"],
-  "modules-center": ["wlr/workspaces","hyprland/window"],
+  "modules-left": ["hyprland/workspaces", "hyprland/window"],
+  "modules-center": [],
   "modules-right": [
     "cpu",
     "memory",
     "pulseaudio",
+    "network",
     "clock#date",
     "clock",
     "tray",
@@ -28,9 +29,9 @@
     "tooltip-format": "{tooltip}",
     "exec": "spotifatius monitor"
   },
-  "wlr/workspaces": {
+  "hyprland/workspaces": {
     "on-click": "activate",
-    //"format": "{name}",
+    "format": "{name}",
     "all-outputs": true,
     "disable-scroll": false,
     "active-only": false
@@ -54,6 +55,25 @@
   },
   "memory": {
     "format": "  {used:0.2f}G"
+  },
+  //"network": {
+  //  "format-wifi": " {essid} ",
+  //  "tooltip": false,
+  //  "format-ethernet": " {ipaddr}/{cidr}",
+  //  "format-linked": "{ifname} (No IP) ",
+  //  "format-disconnected": " ",
+  //  "format-disabled": "Disabled",
+  //  "on-click": "sleep 0.1 && ~/.config/waybar/bin/rofi-wifi-menu.sh",
+  //  "max-length": 5
+  //},
+  "network": {
+    // "interface": "wlp2*", // (Optional) To force the use of this interface
+    "format-wifi": "  {signalStrength}%",
+    "format-ethernet": "  {ipaddr}/{cidr}",
+    "tooltip-format": "  {ifname} via {gwaddr}",
+    "format-linked": "  {ifname} (No IP)",
+    "format-disconnected": " ",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}"
   },
   "pulseaudio": {
     "format": "{icon} {volume}%",
