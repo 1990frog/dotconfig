@@ -1,5 +1,5 @@
 {
-  //"output": "DP-1",
+  "output": "DP-1",
   "layer": "top",
   "position": "top",
   "height": 50,
@@ -34,7 +34,11 @@
     "format": "{name}",
     "all-outputs": true,
     "disable-scroll": false,
-    "active-only": false
+    "active-only": false,
+    "persistent-workspaces": {
+      "DP-1": [ 1 ], // workspace 1 shown on DP-3
+      "DP-2": [ 2, 3 ] // workspaces 2 and 3 shown on DP-1
+    }
   },
   "tray": {
     "show-passive-items": true,
