@@ -1,0 +1,109 @@
+{
+  "output": "DP-1",
+  "layer": "top",
+  "position": "top",
+  "height": 50,
+  "spacing": 4,
+  "exclusive": true,
+  "gtk-layer-shell": true,
+  "passthrough": false,
+  "fixed-center": true,
+  "modules-left": ["hyprland/workspaces", "hyprland/window"],
+  "modules-center": [],
+  "modules-right": [
+    "cpu",
+    "memory",
+    "pulseaudio",
+    "network",
+    "clock#date",
+    "clock",
+    "tray",
+    "custom/power"
+  ],
+  "custom/spotify": {
+    "format": "{}",
+    "return-type": "json",
+    "on-click": "playerctl -p spotify play-pause",
+    "on-click-right": "spotifatius toggle-liked",
+    "on-click-middle": "playerctl -p spotify next",
+    "tooltip-format": "{tooltip}",
+    "exec": "spotifatius monitor"
+  },
+  "hyprland/workspaces": {
+    "on-click": "activate",
+    "format": "{name}",
+    "all-outputs": true,
+    "disable-scroll": false,
+    "active-only": false,
+    "persistent-workspaces": {
+      "DP-1": [ 1 ], // workspace 1 shown on DP-3
+      "DP-2": [ 2, 3 ] // workspaces 2 and 3 shown on DP-1
+    }
+  },
+  "tray": {
+    "show-passive-items": true,
+    "spacing": 10
+  },
+  "clock": {
+    "tooltip": false,
+    "format": "  {:%H:%M}"
+  },
+  "clock#date": {
+    "format": "   {:%a %d %b}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+  "cpu": {
+    "format": "  {usage}%",
+    "tooltip": true,
+    "interval": 1
+  },
+  "memory": {
+    "format": "  {used:0.2f}G"
+  },
+  //"network": {
+  //  "format-wifi": " {essid} ",
+  //  "tooltip": false,
+  //  "format-ethernet": " {ipaddr}/{cidr}",
+  //  "format-linked": "{ifname} (No IP) ",
+  //  "format-disconnected": " ",
+  //  "format-disabled": "Disabled",
+  //  "on-click": "sleep 0.1 && ~/.config/waybar/bin/rofi-wifi-menu.sh",
+  //  "max-length": 5
+  //},
+  "network": {
+    // "interface": "wlp2*", // (Optional) To force the use of this interface
+    "format-wifi": "  {signalStrength}%",
+    "format-ethernet": "  {ipaddr}/{cidr}",
+    "tooltip-format": "  {ifname} via {gwaddr}",
+    "format-linked": "  {ifname} (No IP)",
+    "format-disconnected": " ",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}"
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "  muted",
+    "format-icons": {
+      "headphone": " ",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": [" ", " ", " "]
+    },
+    "on-click": "pavucontrol"
+  },
+  "custom/logo": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/sep": {
+    "format": "|",
+    "tooltip": false
+  },
+  "custom/power": {
+    "tooltip": false,
+    "on-click": "wlogout -p layer-shell &",
+    "format": " "
+  }
+}

@@ -1,0 +1,9 @@
+# patch
++ dwm-cfacts-vanitygaps-6.2_combo.diff
++ dwm-fixborders-6.2.diff
++ dwm-alpha-20201019-61bb8b2.diff
++ dwm-autostart-20210120-cb3f58a.diff
++ dwm-awesomebar-statuscmd-signal-6.2.diff
++ dwm-hide_vacant_tags-6.2.diff
++ dwm-fullscreen-6.2.diff
++ dwm-scratchpad-20170207-bb3bd6f.diff
