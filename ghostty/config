@@ -1,0 +1,16 @@
+# https://ghostty.org/docs/config/reference
+
+theme = catppuccin-mocha
+font-family = Fira Code Nerd Font
+font-size = 15
+
+mouse-hide-while-typing = true
+
+window-padding-color = extend
+window-decoration = false
+
+window-theme = ghostty
+background-opacity = 0.85
+background-blur-radius = 20
+
+keybind = f11=toggle_window_decorations
