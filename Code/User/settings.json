@@ -1,0 +1,126 @@
+{
+  // ===============================
+  // 界面与编辑器 
+  // ===============================
+  "workbench.colorTheme": "Default Dark+",
+  "workbench.settings.applyToAllProfiles": [
+  
+  ],
+  "settingsSync.ignoredExtensions": [],
+  "settingsSync.ignoredSettings": [],
+  "database-client.autoSync": true,
+  "workbench.editor.wrapTabs": true,
+  "workbench.editor.enablePreview": false,
+  // ===============================
+  // 字体 
+  // ===============================
+  "editor.fontFamily": "JetBrainsMono Nerd Font",
+  "editor.fontLigatures": true,
+  // ===============================
+  // 文件与保存 
+  // ===============================
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1500,
+  "files.encoding": "utf8",
+  "files.eol": "\n",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "always"
+  },
+  // ===============================
+  // Lingma
+  // ===============================
+  "Lingma.aI Chat.mcpToolsInAgentMode": true,
+  // ===============================
+  // Vim
+  // ===============================
+  // —— 基础体验 ——
+  "editor.lineNumbers": "relative",
+  "editor.cursorBlinking": "expand",
+  "editor.smoothScrolling": true,
+  "editor.scrollBeyondLastLine": false,
+  "editor.minimap.enabled": false,
+  // —— vim 插件核心 ——
+  "vim.useSystemClipboard": true, // y/p 等与系统剪贴板互通
+  "vim.hlsearch": true, // 高亮上次搜索
+  "vim.incsearch": true, // 增量搜索
+  "vim.sneak": true, // 内置类 easymotion/sneak 跳转
+  "vim.surround": true, // 支持 ys/cs/ds 等 surround 操作
+  "vim.leader": " ", // Leader 设为空格
+  "vim.useCtrlKeys": true, // 允许 Ctrl 作为 Vim 按键
+  "vim.mouseSelectionGoesIntoVisualMode": true,
+  "vim.statusBarColorControl": true, // 根据模式更改状态栏颜色
+  "vim.statusBarColors": {
+    "normal": "#007acc",
+    "insert": "#3c873a",
+    "visual": "#b15acf",
+    "visualblock": "#b15acf",
+    "replace": "#d16969",
+    "commandlineinprogress": "#c19c00"
+  },
+  // 让 VSCodeVim 接管这些按键（避免被 VSCode 默认快捷键拦截）
+  "vim.handleKeys": {
+    "<C-w>": true,
+    "<C-h>": true,
+    "<C-j>": true,
+    "<C-k>": true,
+    "<C-l>": true,
+    "<C-d>": true,
+    "<C-u>": true,
+    "<C-f>": true,
+    "<C-b>": true,
+    "<C-n>": true, // 常用补全/导航，如冲突可改回 false
+    "<C-p>": true
+  },
+  // ===============================
+  // 语言格式相关
+  // ===============================
+  "[java]": {
+    "editor.defaultFormatter": "redhat.java",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSaveMode": "modifications", // 只格式化修改过的行
+  },
+  "[dockercompose]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": "advanced",
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": false,
+      "strings": true
+    },
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "[github-actions-workflow]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[xml]": {
+    "editor.defaultFormatter": "redhat.vscode-xml",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSaveMode": "modifications" // 只格式化修改过的行
+  },
+  // 格式化相关
+  "xml.format.splitAttributes": "preserve", // 属性不换行
+  "xml.format.preserveEmptyContent": false, // 空元素不保留额外换行
+  "xml.format.joinContentLines": true, // 文本内容不拆分多行
+  "xml.format.spaceBeforeEmptyCloseTag": true,
+  "java.configuration.updateBuildConfiguration": "automatic",
+  "java.compile.nullAnalysis.mode": "automatic",
+  "java.import.maven.enabled": true,
+  "java.import.gradle.enabled": false,
+  "redhat.telemetry.enabled": false,
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#007acc",
+    "statusBar.noFolderBackground": "#007acc",
+    "statusBar.debuggingBackground": "#007acc",
+    "statusBar.foreground": "#ffffff",
+    "statusBar.debuggingForeground": "#ffffff"
+  },
+  "explorer.confirmDelete": false,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+}

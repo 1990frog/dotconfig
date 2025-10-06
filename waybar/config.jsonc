@@ -1,0 +1,177 @@
+{
+  // 指定在哪个显示器上显示 Bar,你可以写 "HDMI-A-1" 或 ["eDP-1", "HDMI-A-1"]，也可以用 ! 排除某些输出
+  "output": [
+    "HDMI-A-1"
+  ],
+  // 决定 Bar 是显示在窗口 之上 还是 之下 top/bottom
+  "layer": "top",
+  // Bar 在屏幕哪一侧显示 "top" / "bottom" / "left" / "right"
+  "position": "top",
+  // 像素单位，默认为 10,有时候你可以只写 height，系统会算宽度（比如横向 Bar） 
+  "height": 48,
+  // 模块之间的间距（像素）
+  "spacing": 4,
+  // 用来给 Bar 本身留边距 
+  "margin": 0,
+  // 控制 Bar 的显示模式（是否自动隐藏、覆盖等）"dock" / "hide" / "invisible" / "overlay"
+  "mode": "dock",
+  // 是否保留独占空间（即让窗口避开 Bar 区域）
+  "exclusive": true,
+  "gtk-layer-shell": true,
+  // 是否允许鼠标事件穿透 Bar 到下面的窗口 (即 Bar 不拦截点击) true/false
+  "passthrough": false,
+  // 是否固定中心模块位置（即无论内容多少，中心模块都在中间）
+  "fixed-center": true,
+  // 左模块
+  "modules-left": [
+    "custom/logo",
+    "cpu",
+    "memory",
+    "disk",
+    "hyprland/workspaces",
+    "taskbar"
+  ],
+  // 中模块
+  "modules-center": [
+    "hyprland/window",
+    "custom/spotify"
+  ],
+  // 右模块
+  "modules-right": [
+    "pulseaudio",
+    "network",
+    "clock",
+    "bluetooth",
+    "tray",
+    "backlight"
+  ],
+  "custom/spotify": {
+    "format": "{}",
+    "return-type": "json",
+    "on-click": "playerctl -p spotify play-pause",
+    "on-click-right": "spotifatius toggle-liked",
+    "on-click-middle": "playerctl -p spotify next",
+    "tooltip-format": "{tooltip}",
+    "exec": "spotifatius monitor"
+  },
+  "hyprland/workspaces": {
+    "on-click": "activate",
+    "format": "{name}",
+    "all-outputs": true,
+    "disable-scroll": false,
+    "active-only": true,
+    "persistent-workspaces": {
+      "HDMI-A-1": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    }
+  },
+  "taskbar": {
+    "format": "{icon}",
+    "tooltip-format": "{title} | {app_id}",
+    "on-click": "activate",
+    "on-click-middle": "close",
+    "on-click-right": "fullscreen"
+  },
+  // —— 托盘 —— //
+  "tray": {
+    "show-passive-items": true,
+    "spacing": 10
+  },
+  "clock": {
+    "format": "  {:%Y-%m-%d    󰅐  %H:%M}",
+    "format-alt": "{:%a, %d %b %Y}",
+    "tooltip-format": "<span>{:%A, %d %B %Y}</span>",
+    "locale": "zh_CN.UTF-8",
+    "rotate": 0
+  },
+  "cpu": {
+    "format": "  {usage}%",
+    "format-alt": " {avg_frequency}GHz", // Alt 键切换显示平均频率
+    "tooltip": true,
+    "interval": 3
+  },
+  "memory": {
+    "format": " {percentage}%",
+    "format-alt": "  {used:0.2f}/{total:0.2f}G",
+    "tooltip": true,
+    "interval": 3
+  },
+  "disk": {
+    "format": "󰉉  {percentage_free}%"
+  },
+  "network": {
+    "format-wifi": "  {essid}: {ipaddr}/{cidr}",
+    // "format-ethernet": "  {ifname}: {ipaddr}/{cidr}",
+    "format-ethernet": "   {ipaddr}",
+    "format-disconnected": "⚠ Disconnected "
+    //"format-disconnected": " ",
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "  muted",
+    "format-icons": {
+      "headphone": " ",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": [
+        " ",
+        " ",
+        " "
+      ]
+    },
+    "on-click": "pavucontrol"
+  },
+  "bluetooth": {
+    "format": " {status}  ",
+    "format-connected-battery": " {device_battery_percentage}%  ",
+    "on-click": "blueberry"
+  },
+  "battery": {
+    "states": {
+      "warning": 20,
+      "critical": 10
+    },
+    "format": "<span color='#ffffff'>{icon}</span>   {capacity}%",
+    "format-charging": "<span color='#e88939'> </span> {capacity}%{time}",
+    "format-plugged": "<span color='#e88939'>{icon}  </span>   {capacity}%",
+    "format-discharging": "<span color='#e88939'>{icon}</span>   {capacity}% ({time})",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "backlight": {
+    "format": " {percent:>2}%",
+    "on-scroll-up": "brightnessctl set +5%",
+    "on-scroll-down": "brightnessctl set 5%-",
+    "interval": 2
+  },
+  "custom/logo": {
+    "format": "   ",
+    "tooltip": false
+  },
+  "custom/sep": {
+    "format": "|",
+    "tooltip": false
+  },
+  "custom/power": {
+    "tooltip": false,
+    "on-click": "wlogout -p layer-shell &",
+    "format": " "
+  }
+}
