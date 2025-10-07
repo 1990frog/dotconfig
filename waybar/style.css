@@ -1,6 +1,6 @@
 * {
   min-height: 0;
-  font-family: Lexend ,FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+  font-family: Lexend, FontAwesome, Roboto, Helvetica, Arial, sans-serif;
   font-size: 24px;
   font-weight: 500;
 }
@@ -95,9 +95,11 @@ window#waybar.empty #window {
 #cpu {
   color: #94e2d5;
 }
+
 #disk {
   color: #f6d32d
 }
+
 #memory {
   color: #cba6f7;
 }

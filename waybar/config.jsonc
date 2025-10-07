@@ -29,7 +29,7 @@
     "memory",
     "disk",
     "hyprland/workspaces",
-    "taskbar"
+    "wlr/taskbar"
   ],
   // 中模块
   "modules-center": [
@@ -74,7 +74,7 @@
       ]
     }
   },
-  "taskbar": {
+  "wlr/taskbar": {
     "format": "{icon}",
     "tooltip-format": "{title} | {app_id}",
     "on-click": "activate",

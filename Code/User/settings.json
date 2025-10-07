@@ -14,7 +14,7 @@
   // ===============================
   // 字体 
   // ===============================
-  "editor.fontFamily": "JetBrainsMono Nerd Font",
+  "editor.fontFamily": "'JetBrainsMono Nerd Font', 'Lexend', 'FontAwesome', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'",
   "editor.fontLigatures": true,
   // ===============================
   // 文件与保存 
