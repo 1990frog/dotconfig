@@ -1,0 +1,294 @@
+{
+    // --- 多配置文件同步设置 ---
+    // 将以下设置同步应用到所有配置文件
+    "workbench.settings.applyToAllProfiles": [
+    
+        "cursor.composer.enabled",
+        "cursor.composer.suggestionMode",
+        "cursor.terminal.useCommandHistory",
+        "cursor.cpp.enable",
+        "cursor.composer.cmdPFilePicker2",
+        "cursor.general.instructions",
+        "editor.fontFamily",
+        "editor.fontLigatures",
+        "editor.lineNumbers",
+        "editor.cursorBlinking",
+        "editor.cursorSmoothCaretAnimation",
+        "editor.smoothScrolling",
+        "editor.scrollBeyondLastLine",
+        "editor.minimap.enabled",
+        "editor.bracketPairColorization.enabled",
+        "editor.guides.bracketPairs",
+        "editor.lineHeight",
+        "files.autoSave",
+        "files.encoding",
+        "files.eol",
+        "vim.useSystemClipboard",
+        "vim.hlsearch",
+        "vim.incsearch",
+        "vim.sneak",
+        "vim.surround",
+        "vim.leader",
+        "vim.useCtrlKeys",
+        "vim.mouseSelectionGoesIntoVisualMode",
+        "vim.statusBarColorControl",
+        "vim.handleKeys",
+        "workbench.editor.wrapTabs",
+        "workbench.editor.enablePreview",
+        "workbench.startupEditor",
+        "explorer.confirmDelete"
+    ],
+    
+    // --- 数据库客户端设置 ---
+    // 自动同步数据库连接设置
+    "database-client.autoSync": true,
+    
+    // --- 工作区编辑器设置 ---
+    // 编辑器标签页自动换行
+    "workbench.editor.wrapTabs": true,
+    // 禁用编辑器预览模式（打开文件即为永久标签）
+    "workbench.editor.enablePreview": false,
+    
+    // --- 编辑器字体设置 ---
+    // 使用 JetBrains Mono Nerd Font 字体（支持图标和连字符）
+    "editor.fontFamily": "'JetBrainsMono Nerd Font'",
+    // 启用字体连字符显示（如 ->, =>, == 等符号连字）
+    "editor.fontLigatures": true,
+    // --- 文件设置 ---
+    // 避免 AI 在你写代码中途自动保存导致 Java 编译卡顿
+    "files.autoSave": "onFocusChange",
+    // 文件编码使用 UTF-8
+    "files.encoding": "utf8",
+    // 行尾符使用 LF（Unix 风格）
+    "files.eol": "\n",
+    
+    // --- 编辑器通用设置 ---
+    // 全局禁用保存时自动格式化（各语言可单独启用）
+    "editor.formatOnSave": false,
+    // 显示相对行号（方便快速移动和跳转）
+    "editor.lineNumbers": "relative",
+    // 光标闪烁效果为展开动画
+    "editor.cursorBlinking": "expand",
+    // 启用平滑滚动动画
+    "editor.smoothScrolling": true,
+    // 禁用滚动超过最后一行
+    "editor.scrollBeyondLastLine": false,
+    // 启用小地图（显示文件整体结构）
+    "editor.minimap.enabled": true,
+    // --- Vim 扩展功能设置 ---
+    // 使用系统剪贴板（与系统复制粘贴互通）
+    "vim.useSystemClipboard": true,
+    // 启用搜索结果高亮显示
+    "vim.hlsearch": true,
+    // 启用增量搜索（输入即搜索）
+    "vim.incsearch": true,
+    // 启用 sneak 插件（快速跳转功能）
+    "vim.sneak": true,
+    // 启用 surround 插件（快速修改引号、括号等）
+    "vim.surround": true,
+    // 设置 Leader 键为空格
+    "vim.leader": " ",
+    // 允许使用 Ctrl 组合键
+    "vim.useCtrlKeys": true,
+    // 鼠标选择自动进入视觉模式
+    "vim.mouseSelectionGoesIntoVisualMode": true,
+    // 允许 Vim 控制状态栏颜色
+    "vim.statusBarColorControl": true,
+    // Vim 快捷键冲突处理（false 表示由 VS Code 处理，true 表示由 Vim 处理）
+    "vim.handleKeys": {
+        "<C-w>": false, // 窗口操作由 VS Code 处理
+        "<C-p>": false, // 习惯用 Cmd+P 搜文件
+        "<C-k>": false, // 必须设为 false，用于唤起 Cursor AI
+        "<C-l>": false, // 必须设为 false，用于唤起右侧 AI Chat
+        "<C-h>": false, // 向左移动由 VS Code 处理
+        "<C-j>": false, // 向下移动由 VS Code 处理
+        "<C-d>": true, // 向下滚动半页由 Vim 处理
+        "<C-u>": true, // 向上滚动半页由 Vim 处理
+        "<C-f>": true, // 向下滚动一页由 Vim 处理
+        "<C-b>": true, // 向上滚动一页由 Vim 处理
+        "<C-n>": true  // 自动补全下一个由 Vim 处理
+    },
+    // --- 语言特定设置 ---
+    "[java]": {
+        // 使用 Red Hat Java 扩展作为默认格式化工具
+        "editor.defaultFormatter": "redhat.java",
+        // Java 文件保存时自动格式化
+        "editor.formatOnSave": true,
+        // Java 文件粘贴时自动格式化
+        "editor.formatOnPaste": true,
+        // 仅格式化修改的部分（提高性能）
+        "editor.formatOnSaveMode": "modifications"
+    },
+    "[dockercompose]": {
+        // 使用空格而非 Tab
+        "editor.insertSpaces": true,
+        // Tab 大小为 2 个空格
+        "editor.tabSize": 2,
+        // 使用进阶自动缩排
+        "editor.autoIndent": "advanced",
+        // 快速建议设置
+        "editor.quickSuggestions": {
+            "other": true,        // 其他位置启用建议
+            "comments": false,    // 注释中禁用建议
+            "strings": true       // 字符串中启用建议
+        },
+        // 使用 Red Hat YAML 扩展作为默认格式化工具
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "[github-actions-workflow]": {
+        // GitHub Actions 工作流文件使用 YAML 格式化工具
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "[jsonc]": {
+        // JSON with Comments 文件使用内置 JSON 格式化工具
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[xml]": {
+        // 使用 Red Hat XML 扩展作为默认格式化工具
+        "editor.defaultFormatter": "redhat.vscode-xml",
+        // XML 文件保存时自动格式化
+        "editor.formatOnSave": true,
+        // XML 文件粘贴时自动格式化
+        "editor.formatOnPaste": true,
+        // 仅格式化修改的部分
+        "editor.formatOnSaveMode": "modifications"
+    },
+    // --- XML 格式化详细设置 ---
+    // 保留属性分行（不自动合并）
+    "xml.format.splitAttributes": "preserve",
+    // 不保留空内容
+    "xml.format.preserveEmptyContent": false,
+    // 合并内容行（减少空行）
+    "xml.format.joinContentLines": true,
+    // 空标签闭合前加入空格（如 <tag />）
+    "xml.format.spaceBeforeEmptyCloseTag": true,
+    // --- Java 扩展功能设置 ---
+    // 自动更新构建配置（检测 pom.xml 变更）
+    "java.configuration.updateBuildConfiguration": "automatic",
+    // 自动启用空值分析（帮助找出潜在的 NullPointerException）
+    "java.compile.nullAnalysis.mode": "automatic",
+    // 启用 Maven 项目导入支持
+    "java.import.maven.enabled": true,
+    // 禁用 Gradle 项目导入（不使用 Gradle）
+    "java.import.gradle.enabled": false,
+    // 保存时自动整理 import 语句
+    "java.saveActions.organizeImports": true,
+    // 常用静态成员自动补全（在输入时优先显示）
+    "java.completion.favoriteStaticMembers": [
+        "org.junit.Assert.*",                      // JUnit 4 斷言
+        "org.junit.jupiter.api.Assertions.*",      // JUnit 5 斷言
+        "java.util.Objects.*",                     // Objects 工具類
+        "org.mockito.ArgumentMatchers.*",          // Mockito 參數匹配器
+        "org.mockito.Mockito.*"                    // Mockito 核心 API
+    ],
+    // --- Red Hat 扩展设置 ---
+    // 禁用 Red Hat 扩展的遥测数据收集
+    "redhat.telemetry.enabled": false,
+    
+    // --- 工作区颜色自定义 ---
+    // 自定义状态栏颜色（深青色背景，白色文字）
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#5f00af",
+        "statusBar.noFolderBackground": "#5f00af",
+        "statusBar.debuggingBackground": "#5f00af",
+        "statusBar.foreground": "#ffffff",
+        "statusBar.debuggingForeground": "#ffffff"
+    },
+    
+    // --- 文件资源管理器设置 ---
+    // 删除文件时不显示确认对话框
+    "explorer.confirmDelete": false,
+    
+    // --- JavaScript/TypeScript 设置 ---
+    // 移动文件时自动更新 import 路径
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    
+    // --- 安全性设置 ---
+    // 允许直接打开不受信任的文件（不显示警告）
+    "security.workspace.trust.untrustedFiles": "open",
+    
+    // --- 调试设置 ---
+    // 启用通过链接进行 JavaScript 调试
+    "debug.javascript.debugByLinkOptions": "on",
+    
+    // --- 工作区启动设置 ---
+    // 启动时不显示任何编辑器（空白工作区）
+    "workbench.startupEditor": "none",
+    
+    // --- Java 运行时设置 ---
+    // 配置多个 Java 版本供项目选择
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-1.8",
+            "path": "/usr/lib/jvm/zulu-8-openjdk"
+        },
+        {
+            "name": "JavaSE-17",
+            "path": "/usr/lib/jvm/java-17-openjdk",
+            "default": true  // 默认使用 Java 17
+        },
+        {
+            "name": "JavaSE-21",
+            "path": "/usr/lib/jvm/java-21-openjdk"
+        }
+    ],
+    
+    // --- 启动配置 ---
+    // 调试和启动配置（目前为空）
+    "launch": {
+        "configurations": [],
+        "compounds": []
+    },
+    
+    // --- 编辑器 Unicode 设置 ---
+    // 不突出显示非基本 ASCII 字符（如中文、日文等）
+    "editor.unicodeHighlight.nonBasicASCII": false,
+    
+    // --- Git 设置 ---
+    // 自动获取远端更新（后台执行）
+    "git.autofetch": true,
+    // 不建议智能提交消息
+    "git.suggestSmartCommit": false,
+    
+    // --- 主题设置 ---
+    // 使用默认深色主题
+    "workbench.colorTheme": "Default Dark+",
+    // 增加代码行高，方便 AI 修改代码时通过 diff 视图清晰对比改动
+    "editor.lineHeight": 24,
+    // 丝滑的光标动画
+    "editor.cursorSmoothCaretAnimation": "on",
+    // 开启括号对彩色，方便在嵌套严重的 Java 代码中肉眼定位
+    "editor.bracketPairColorization.enabled": true,
+    // 括号对引导线在活动括号对时显示
+    "editor.guides.bracketPairs": "active",
+    
+    // --- Cursor AI 建议配置 ---
+    // Cursor AI 通用指令（指导 AI 的行为偏好）
+    "cursor.general.instructions": "解释一律用中文。写 Java 优先 Java17+（Stream/Optional），实体类优先 Lombok，给出可直接复制的代码。",
+    // 启用 Cursor Composer（AI 辅助编写功能）
+    "cursor.composer.enabled": true,
+    // Composer 建议模式：总是显示建议
+    "cursor.composer.suggestionMode": "always",
+    // 使用新版本的文件选择器
+    "cursor.composer.cmdPFilePicker2": true,
+    // 终端使用命令历史记录
+    "cursor.terminal.useCommandHistory": true,
+    // 启用 C++ 语言支持
+    "cursor.cpp.enable": true,
+    
+    // --- Diff 视图设置（更适合 Review AI 改动） ---
+    // 并排显示差异（左旧右新）
+    "diffEditor.renderSideBySide": true,
+    // 差异视图自动换行
+    "diffEditor.wordWrap": "on",
+    // 不忽略行尾空白差异（精确显示所有变更）
+    "diffEditor.ignoreTrimWhitespace": false,
+    
+    // --- 代码动作设置 ---
+    // 建议：避免与 Java saveActions 重复整理 imports
+    // 仅在明确请求时执行自动修正（避免与 Java 扩展的 import 整理冲突）
+    "editor.codeActionsOnSave": {
+        "source.fixAll": "explicit"
+    },
+    "window.newWindowProfile": "默认"
+}

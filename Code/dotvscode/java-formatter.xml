@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<profiles version="21">
+    <profile kind="CodeFormatterProfile" name="Java-Formatter" version="21">
+
+        <!-- ========== 基础缩进 ========== -->
+        <setting id="org.eclipse.jdt.core.formatter.tabulation.char" value="space" />
+        <setting id="org.eclipse.jdt.core.formatter.tabulation.size" value="4" />
+        <setting id="org.eclipse.jdt.core.formatter.indentation.size" value="4" />
+
+        <!-- ========== 行宽 ========== -->
+        <setting id="org.eclipse.jdt.core.formatter.lineSplit" value="120" />
+
+        <!-- ========== 大括号风格 ========== -->
+        <setting id="org.eclipse.jdt.core.formatter.brace_position_for_type_declaration" value="end_of_line" />
+        <setting id="org.eclipse.jdt.core.formatter.brace_position_for_method_declaration" value="end_of_line" />
+        <setting id="org.eclipse.jdt.core.formatter.brace_position_for_constructor_declaration" value="end_of_line" />
+        <setting id="org.eclipse.jdt.core.formatter.brace_position_for_block" value="end_of_line" />
+
+        <!-- ========== 枚举类 ========== -->
+        <setting id="org.eclipse.jdt.core.formatter.insert_new_line_after_comma_in_enum_declarations" value="true" />
+        <setting id="org.eclipse.jdt.core.formatter.insert_new_line_in_empty_enum_declaration" value="true" />
+
+        <!-- ========== 控制语句 ========== -->
+        <setting id="org.eclipse.jdt.core.formatter.keep_then_statement_on_same_line" value="false" />
+        <setting id="org.eclipse.jdt.core.formatter.keep_else_statement_on_same_line" value="false" />
+
+        <!-- ========== 运算符换行策略 ========== -->
+        <setting id="org.eclipse.jdt.core.formatter.wrap_before_binary_operator" value="true" />
+        <setting id="org.eclipse.jdt.core.formatter.wrap_before_conditional_operator" value="true" />
+        <setting id="org.eclipse.jdt.core.formatter.wrap_before_assignment_operator" value="true" />
+
+        <!-- ========== 方法调用和链式调用 ========== -->
+        <!-- 允许嵌套表达式拆行 -->
+        <setting id="org.eclipse.jdt.core.formatter.wrap_outer_expressions_when_nested" value="true" />
+        <!-- 方法调用参数换行策略 -->
+        <setting id="org.eclipse.jdt.core.formatter.wrap_method_invocation_arguments" value="wrap_where_necessary" />
+        <!-- 在 . 之前换行（方法调用） -->
+        <setting id="org.eclipse.jdt.core.formatter.wrap_before_dot_in_method_invocation" value="true" />
+        <setting id="org.eclipse.jdt.core.formatter.wrap_before_method_invocation_operator" value="true" />
+        <!-- 方法参数对齐 -->
+        <setting id="org.eclipse.jdt.core.formatter.alignment_for_arguments_in_method_invocation" value="16" />
+        <setting id="org.eclipse.jdt.core.formatter.alignment_for_parameters_in_method_declaration" value="16" />
+        <!-- 链式调用选择器对齐 -->
+        <setting id="org.eclipse.jdt.core.formatter.alignment_for_selector_in_method_invocation" value="16" />
+
+        <!-- ========== Import 排序 ========== -->
+        <setting id="org.eclipse.jdt.core.formatter.import_order" value="java;javax;org;com" />
+        <setting id="org.eclipse.jdt.core.formatter.number_of_imports_for_wildcard" value="99" />
+        <setting id="org.eclipse.jdt.core.formatter.number_of_static_imports_for_wildcard" value="99" />
+
+    </profile>
+</profiles>

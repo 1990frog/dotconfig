@@ -1,0 +1,36 @@
+{
+    // Java Language Server JVM 參數配置
+    // -Xmx4G: 最大堆記憶體 4GB
+    // -Xms100m: 初始堆記憶體 100MB
+    // -XX:+UseParallelGC: 使用並行垃圾收集器
+    // -XX:GCTimeRatio=4: GC 時間比率設置
+    // -XX:AdaptiveSizePolicyWeight=90: 自適應大小策略權重
+    // -Dsun.zip.disableMemoryMapping=true: 禁用 ZIP 記憶體映射
+    // -Xlog:disable: 禁用 JVM 日誌
+    "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx4G -Xms100m -Xlog:disable",
+    
+    // 文件類型關聯配置
+    // 將 .env.* 文件識別為 dotenv 格式
+    "files.associations": {
+        "*.env.*": "dotenv"
+    },
+    
+    // Java 編譯時空值分析模式
+    // automatic: 自動啟用空值分析
+    "java.compile.nullAnalysis.mode": "automatic",
+    
+    // Java 代碼格式化配置文件路徑
+    // 使用項目根目錄下的 .vscode/java-formatter.xml 作為格式化規則
+    "java.format.settings.url": ".vscode/java-formatter.xml",
+
+    "code-runner.executorMap": {
+        // 让 Code Runner 使用你指定的 Java 17 路径运行
+        "java": "/usr/lib/jvm/zulu-8-openjdk/bin/java", 
+        "python": "python3",
+        "javascript": "node",
+        "sh": "bash"
+    },
+    "code-runner.runInTerminal": true, // [强烈建议] 在集成终端运行，支持从键盘输入数据
+    "code-runner.saveFileBeforeRun": true, // 运行前自动保存，防止运行的是旧代码
+    "code-runner.clearPreviousOutput": true, // 每次运行清空旧输出，保持干净
+}
