@@ -72,6 +72,9 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git
 	sudo
+        zsh-completions
+        zsh-autosuggestions
+        zsh-syntax-highlighting
 	z)
 
 source $ZSH/oh-my-zsh.sh
@@ -114,3 +117,14 @@ eval "$(micromamba shell hook --shell zsh)"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"       # 加载 nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # 可选：nvm 命令补全
+
+bindkey -r '^J'  # -r 表示移除绑定
+
+if [[ "$TERM" == "xterm-ghostty" ]]; then
+  export TERM=xterm-256color
+fi
+
+export PATH=$JAVA_HOME/bin:$PATH
+export https_proxy=http://127.0.0.1:7897 http_proxy=http://127.0.0.1:7897 all_proxy=socks5://127.0.0.1:7897
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
