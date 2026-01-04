@@ -87,10 +87,10 @@ input {
     // 格式："宽x高" 或 "宽x高@刷新率"
     // 若省略刷新率，niri 会选择最高可用值。
     // mode "1920x1080@120.030"
-    mode "2560x1440@60"
+    mode "3840x2160@60.000"
 
     // 缩放比例，可为整数或小数。
-    scale 2
+    scale 1
 
     // 显示器旋转（逆时针）：
     // normal, 90, 180, 270, flipped 等。
@@ -105,19 +105,19 @@ input {
 // https://yalter.github.io/niri/Configuration:-Layout
 layout {
     // 窗口之间的间距（逻辑像素）
-    gaps 16
+    gaps 1 
 
     // 聚焦列时是否居中：
     // never / always / on-overflow
     center-focused-column "never"
 
     // 预设列宽（Mod+R 切换）
-    preset-column-widths {
-        proportion 0.33333
-        proportion 0.5
-        proportion 0.66667
-        // fixed 1920
-    }
+   // preset-column-widths {
+   //     proportion 0.33333
+   //     prrportion 0.5
+   //     proportion 0.66667
+   //     // fixed 1920
+   // }
 
     // 新窗口默认宽度
     default-column-width { proportion 0.5; }
@@ -125,7 +125,7 @@ layout {
     // 焦点环（focus ring）配置
     focus-ring {
         // off                     // 禁用焦点环
-        width 4
+        width 1
         active-color "#7fc8ff"
         inactive-color "#505050"
     }
@@ -133,7 +133,7 @@ layout {
     // 边框配置（与焦点环类似）
     border {
         off
-        width 4
+        width 1
         active-color "#ffc87f"
         inactive-color "#505050"
         urgent-color "#9b0000"
@@ -159,6 +159,8 @@ layout {
 
 // 启动时运行的程序
 spawn-at-startup "ashell"
+spawn-at-startup "clash-verge"
+spawn-at-startup "fcitx5" "-d"
 
 // 快捷键提示弹窗
 hotkey-overlay {
@@ -200,6 +202,9 @@ binds {
     // 打开终端 / 启动器 / 锁屏
     Mod+T { spawn "ghostty"; }
     Mod+D { spawn "fuzzel"; }
+    Mod+F { spawn "firefox"; }
+    // Mod+Space { spawn "wofi" "--show" "drun"; }
+    Mod+Space { spawn "sh" "-lc" "wofi --show drun"; }
     Super+Alt+L { spawn "swaylock"; }
 
     // 音量 / 亮度 / 媒体控制略
@@ -213,6 +218,7 @@ binds {
     // 窗口/列/工作区/显示器的
     // 聚焦、移动、调整大小等快捷键
     // （此处保持原配置，不逐条赘述）
+
 
     // 截图
     Print { screenshot; }
@@ -228,4 +234,17 @@ binds {
 
     // 关闭显示器电源
     Mod+Shift+P { power-off-monitors; }
+
+    // 移动
+    // 左右切换：在不同的“列 (Column)”之间移动
+    Mod+Left  { focus-column-left; }
+    Mod+Right { focus-column-right; }
+    Mod+H     { focus-column-left; }
+    Mod+L     { focus-column-right; }
+
+    // 上下切换：如果一列里有多个窗口（堆叠），在它们之间移动
+    Mod+Up    { focus-window-up; }
+    Mod+Down  { focus-window-down; }
+    Mod+K     { focus-window-up; }
+    Mod+J     { focus-window-down; }
 }
