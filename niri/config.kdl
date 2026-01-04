@@ -1,0 +1,231 @@
+// 本配置文件使用 KDL 格式：https://kdl.dev
+// 使用 "/-" 可以注释掉其后的节点。
+// 完整配置说明请查看官方 Wiki：
+// https://yalter.github.io/niri/Configuration:-Introduction
+
+// 输入设备配置。
+// 所有可用选项见 Wiki：
+// https://yalter.github.io/niri/Configuration:-Input
+input {
+    keyboard {
+        xkb {
+            // 可以设置 rules、model、layout、variant 和 options。
+            // 更多信息参见 xkeyboard-config(7)。
+
+            // 示例：
+            // layout "us,ru"
+            // options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
+
+            // 如果该段为空，niri 会从 org.freedesktop.locale1
+            // 获取 xkb 设置。
+            // 可通过 localectl set-x11-keymap 进行配置。
+        }
+
+        // 启动时开启小键盘（NumLock），
+        // 如果省略该项则不处理 NumLock。
+        numlock
+    }
+
+    // 以下是 libinput 相关设置。
+    // 省略某项将禁用它，或使用默认值。
+    // 这里所有被注释的选项都只是示例，不是默认值。
+    touchpad {
+        // off                       // 禁用触控板
+        tap                         // 启用轻触点击
+        // dwt                       // 打字时禁用触控板
+        // dwtp
+        // drag false
+        // drag-lock
+        natural-scroll              // 自然滚动
+        // accel-speed 0.2
+        // accel-profile "flat"
+        // scroll-method "two-finger"
+        // disabled-on-external-mouse
+    }
+
+    mouse {
+        // off
+        // natural-scroll
+        // accel-speed 0.2
+        // accel-profile "flat"
+        // scroll-method "no-scroll"
+    }
+
+    trackpoint {
+        // off
+        // natural-scroll
+        // accel-speed 0.2
+        // accel-profile "flat"
+        // scroll-method "on-button-down"
+        // scroll-button 273
+        // scroll-button-lock
+        // middle-emulation
+    }
+
+    // 取消注释可在窗口获得焦点时
+    // 将鼠标指针移动到窗口中心。
+    // warp-mouse-to-focus
+
+    // 当鼠标移入窗口或输出区域时自动聚焦。
+    // max-scroll-amount="0%" 表示
+    // 只对完全在屏幕内的窗口生效。
+    // focus-follows-mouse max-scroll-amount="0%"
+}
+
+// 输出（显示器）配置。
+// 输出名称可通过在 niri 会话中运行
+// `niri msg outputs` 查看。
+// 内建笔记本屏幕通常叫 "eDP-1"。
+// 更多信息见 Wiki：
+// https://yalter.github.io/niri/Configuration:-Outputs
+// 记得删除 "/-" 才能启用该节点！
+/-output "HDMI-A-1" {
+    // 取消注释以禁用该输出。
+    // off
+
+    // 分辨率与刷新率。
+    // 格式："宽x高" 或 "宽x高@刷新率"
+    // 若省略刷新率，niri 会选择最高可用值。
+    // mode "1920x1080@120.030"
+    mode "2560x1440@60"
+
+    // 缩放比例，可为整数或小数。
+    scale 2
+
+    // 显示器旋转（逆时针）：
+    // normal, 90, 180, 270, flipped 等。
+    transform "normal"
+
+    // 显示器在全局坐标系中的位置。
+    // 会影响跨显示器方向操作和鼠标移动。
+    position x=1280 y=0
+}
+
+// 布局相关设置。
+// https://yalter.github.io/niri/Configuration:-Layout
+layout {
+    // 窗口之间的间距（逻辑像素）
+    gaps 16
+
+    // 聚焦列时是否居中：
+    // never / always / on-overflow
+    center-focused-column "never"
+
+    // 预设列宽（Mod+R 切换）
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+        // fixed 1920
+    }
+
+    // 新窗口默认宽度
+    default-column-width { proportion 0.5; }
+
+    // 焦点环（focus ring）配置
+    focus-ring {
+        // off                     // 禁用焦点环
+        width 4
+        active-color "#7fc8ff"
+        inactive-color "#505050"
+    }
+
+    // 边框配置（与焦点环类似）
+    border {
+        off
+        width 4
+        active-color "#ffc87f"
+        inactive-color "#505050"
+        urgent-color "#9b0000"
+    }
+
+    // 窗口阴影设置
+    shadow {
+        // on
+        softness 30
+        spread 5
+        offset x=0 y=5
+        color "#0007"
+    }
+
+    // Struts：类似外边距，用于为面板等保留空间
+    struts {
+        // left 64
+        // right 64
+        // top 64
+        // bottom 64
+    }
+}
+
+// 启动时运行的程序
+spawn-at-startup "ashell"
+
+// 快捷键提示弹窗
+hotkey-overlay {
+    // skip-at-startup            // 启动时不显示
+}
+
+// prefer-no-csd：请求应用禁用客户端装饰（CSD）
+// 启用后需重启应用才能生效。
+// prefer-no-csd
+
+// 截图保存路径
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+// screenshot-path null        // 禁用保存
+
+// 动画设置
+animations {
+    // off
+    // slowdown 3.0
+}
+
+// 窗口规则（针对特定应用）
+window-rule {
+    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    default-column-width {}
+}
+
+window-rule {
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+// 快捷键绑定
+binds {
+    // Mod 通常是 Super（Win 键）
+
+    // 显示重要快捷键
+    Mod+Shift+Slash { show-hotkey-overlay; }
+
+    // 打开终端 / 启动器 / 锁屏
+    Mod+T { spawn "ghostty"; }
+    Mod+D { spawn "fuzzel"; }
+    Super+Alt+L { spawn "swaylock"; }
+
+    // 音量 / 亮度 / 媒体控制略
+
+    // 打开 Overview（总览视图）
+    Mod+O { toggle-overview; }
+
+    // 关闭窗口
+    Mod+Q { close-window; }
+
+    // 窗口/列/工作区/显示器的
+    // 聚焦、移动、调整大小等快捷键
+    // （此处保持原配置，不逐条赘述）
+
+    // 截图
+    Print { screenshot; }
+    Ctrl+Print { screenshot-screen; }
+    Alt+Print { screenshot-window; }
+
+    // 键盘快捷键抑制开关（逃生口）
+    Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+
+    // 退出 niri（会弹确认框）
+    Mod+Shift+E { quit; }
+    Ctrl+Alt+Delete { quit; }
+
+    // 关闭显示器电源
+    Mod+Shift+P { power-off-monitors; }
+}
