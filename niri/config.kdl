@@ -79,7 +79,7 @@ input {
 // 更多信息见 Wiki：
 // https://yalter.github.io/niri/Configuration:-Outputs
 // 记得删除 "/-" 才能启用该节点！
-/-output "HDMI-A-1" {
+output "HDMI-A-1" {
     // 取消注释以禁用该输出。
     // off
 
@@ -87,7 +87,8 @@ input {
     // 格式："宽x高" 或 "宽x高@刷新率"
     // 若省略刷新率，niri 会选择最高可用值。
     // mode "1920x1080@120.030"
-    mode "3840x2160@60.000"
+    // mode "2560x1440"
+    mode "3840x2160"
 
     // 缩放比例，可为整数或小数。
     scale 1
@@ -247,4 +248,12 @@ binds {
     Mod+Down  { focus-window-down; }
     Mod+K     { focus-window-up; }
     Mod+J     { focus-window-down; }
+
+    // workspace
+    Super+1 { focus-workspace 1; }
+    Super+2 { focus-workspace 2; }
+    Super+3 { focus-workspace 3; }
+
+    Super+Shift+1 { move-window-to-workspace 1; }
+    Super+Shift+2 { move-window-to-workspace 2; }
 }
