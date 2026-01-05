@@ -86,8 +86,8 @@ output "HDMI-A-1" {
     // If the mode is omitted altogether or is invalid, niri will pick one automatically.
     // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
     // mode "1920x1080@120.030"
-    mode "2560x1440"
-    // mode "3840x2160"
+    // mode "2560x1440"
+    mode "3840x2160"
 
     // You can use integer or fractional scale, for example use 1.5 for 150% scale.
     scale 1
@@ -274,6 +274,9 @@ layout {
 spawn-at-startup "ashell"
 spawn-at-startup "clash-verge"
 spawn-at-startup "fcitx5" "-d"
+spawn-at-startup "swww-daemon"
+spawn-at-startup "sh" "-c" "sleep 1 && swww img ~/Pictures/wallpaper/wallhaven-d69qlj.jpg"
+spawn-at-startup "flameshot"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
