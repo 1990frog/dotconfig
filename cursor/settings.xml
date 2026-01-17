@@ -1,93 +1,110 @@
 {
     // --- 多配置文件同步设置 ---
     // 将以下设置同步应用到所有配置文件
-    "workbench.settings.applyToAllProfiles": [
-    
-        "cursor.composer.enabled",
-        "cursor.composer.suggestionMode",
-        "cursor.terminal.useCommandHistory",
-        "cursor.cpp.enable",
-        "cursor.composer.cmdPFilePicker2",
-        "cursor.general.instructions",
-        "editor.fontFamily",
-        "editor.fontLigatures",
-        "editor.lineNumbers",
-        "editor.cursorBlinking",
-        "editor.cursorSmoothCaretAnimation",
-        "editor.smoothScrolling",
-        "editor.scrollBeyondLastLine",
-        "editor.minimap.enabled",
-        "editor.bracketPairColorization.enabled",
-        "editor.guides.bracketPairs",
-        "editor.lineHeight",
-        "files.autoSave",
-        "files.encoding",
-        "files.eol",
-        "vim.useSystemClipboard",
-        "vim.hlsearch",
-        "vim.incsearch",
-        "vim.sneak",
-        "vim.surround",
-        "vim.leader",
-        "vim.useCtrlKeys",
-        "vim.mouseSelectionGoesIntoVisualMode",
-        "vim.statusBarColorControl",
-        "vim.handleKeys",
-        "workbench.editor.wrapTabs",
-        "workbench.editor.enablePreview",
-        "workbench.startupEditor",
-        "explorer.confirmDelete"
-    ],
-    
+    // "workbench.settings.applyToAllProfiles": [
+    //     "cursor.composer.enabled",
+    //     "cursor.composer.suggestionMode",
+    //     "cursor.terminal.useCommandHistory",
+    //     "cursor.cpp.enable",
+    //     "cursor.composer.cmdPFilePicker2",
+    //     "cursor.general.instructions",
+    //     "editor.fontFamily",
+    //     "editor.fontLigatures",
+    //     "editor.lineNumbers",
+    //     "editor.cursorBlinking",
+    //     "editor.cursorSmoothCaretAnimation",
+    //     "editor.smoothScrolling",
+    //     "editor.scrollBeyondLastLine",
+    //     "editor.minimap.enabled",
+    //     "editor.bracketPairColorization.enabled",
+    //     "editor.guides.bracketPairs",
+    //     "editor.lineHeight",
+    //     "files.autoSave",
+    //     "files.encoding",
+    //     "files.eol",
+    //     "vim.useSystemClipboard",
+    //     "vim.hlsearch",
+    //     "vim.incsearch",
+    //     "vim.sneak",
+    //     "vim.surround",
+    //     "vim.leader",
+    //     "vim.useCtrlKeys",
+    //     "vim.mouseSelectionGoesIntoVisualMode",
+    //     "vim.statusBarColorControl",
+    //     "vim.handleKeys",
+    //     "workbench.editor.wrapTabs",
+    //     "workbench.editor.enablePreview",
+    //     "workbench.startupEditor",
+    //     "explorer.confirmDelete"
+    // ],
+    // ===== 基础体验 =====
+    "editor.fontSize": 14,
+    // 增加代码行高，方便 AI 修改代码时通过 diff 视图清晰对比改动
+    "editor.lineHeight": 22,
+    // 启用字体连字符显示（如 ->, =>, == 等符号连字）
+    "editor.fontLigatures": true,
+    "editor.renderWhitespace": "boundary",
+    // // 丝滑的光标动画
+    // "editor.cursorSmoothCaretAnimation": "on",
+    // // 启用平滑滚动动画
+    // "editor.smoothScrolling": true,
+    // "workbench.list.smoothScrolling": true,
+    // ===== 缩进/保存/换行 =====
+    // 行尾符使用 LF（Unix 风格）
+    "files.eol": "\n",
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": true,
+    "editor.wordWrap": "on",
+    // 全局禁用保存时自动格式化（各语言可单独启用）
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": false,
+    "editor.formatOnType": false,
     // --- 数据库客户端设置 ---
     // 自动同步数据库连接设置
     "database-client.autoSync": true,
-    
     // --- 工作区编辑器设置 ---
     // 编辑器标签页自动换行
     "workbench.editor.wrapTabs": true,
     // 禁用编辑器预览模式（打开文件即为永久标签）
     "workbench.editor.enablePreview": false,
-    
     // --- 编辑器字体设置 ---
     // 使用 JetBrains Mono Nerd Font 字体（支持图标和连字符）
     "editor.fontFamily": "'JetBrainsMono Nerd Font'",
-    // 启用字体连字符显示（如 ->, =>, == 等符号连字）
-    "editor.fontLigatures": true,
     // --- 文件设置 ---
     // 避免 AI 在你写代码中途自动保存导致 Java 编译卡顿
     "files.autoSave": "onFocusChange",
     // 文件编码使用 UTF-8
     "files.encoding": "utf8",
-    // 行尾符使用 LF（Unix 风格）
-    "files.eol": "\n",
-    
     // --- 编辑器通用设置 ---
-    // 全局禁用保存时自动格式化（各语言可单独启用）
-    "editor.formatOnSave": false,
     // 显示相对行号（方便快速移动和跳转）
     "editor.lineNumbers": "relative",
     // 光标闪烁效果为展开动画
     "editor.cursorBlinking": "expand",
-    // 启用平滑滚动动画
-    "editor.smoothScrolling": true,
     // 禁用滚动超过最后一行
     "editor.scrollBeyondLastLine": false,
     // 启用小地图（显示文件整体结构）
     "editor.minimap.enabled": true,
-    // --- Vim 扩展功能设置 ---
+    // ===== Vim 模式更顺手 =====
     // 使用系统剪贴板（与系统复制粘贴互通）
     "vim.useSystemClipboard": true,
+    "vim.smartRelativeLine": true,
     // 启用搜索结果高亮显示
     "vim.hlsearch": true,
     // 启用增量搜索（输入即搜索）
     "vim.incsearch": true,
+    "vim.ignorecase": true,
+    "vim.smartcase": true,
+    // 设置 Leader 键为空格
+    "vim.leader": "<space>",
+    // --- Vim 扩展功能设置 ---
     // 启用 sneak 插件（快速跳转功能）
     "vim.sneak": true,
     // 启用 surround 插件（快速修改引号、括号等）
     "vim.surround": true,
-    // 设置 Leader 键为空格
-    "vim.leader": " ",
     // 允许使用 Ctrl 组合键
     "vim.useCtrlKeys": true,
     // 鼠标选择自动进入视觉模式
@@ -97,16 +114,18 @@
     // Vim 快捷键冲突处理（false 表示由 VS Code 处理，true 表示由 Vim 处理）
     "vim.handleKeys": {
         "<C-w>": false, // 窗口操作由 VS Code 处理
-        "<C-p>": false, // 习惯用 Cmd+P 搜文件
+        "<C-p>": false, // 用于 Cmd/Ctrl+P 快速打开文件
         "<C-k>": false, // 必须设为 false，用于唤起 Cursor AI
         "<C-l>": false, // 必须设为 false，用于唤起右侧 AI Chat
-        "<C-h>": false, // 向左移动由 VS Code 处理
-        "<C-j>": false, // 向下移动由 VS Code 处理
+        "<C-h>": false, // 向左移动由 VS Code 处理（避免与 Cursor 快捷键冲突）
+        "<C-j>": false, // 向下移动由 VS Code 处理（避免与 Cursor 快捷键冲突）
         "<C-d>": true, // 向下滚动半页由 Vim 处理
         "<C-u>": true, // 向上滚动半页由 Vim 处理
-        "<C-f>": true, // 向下滚动一页由 Vim 处理
+        "<C-f>": false, // 必须设为 false，向下滚动一页交给 VS Code，防止 Cursor 冲突
         "<C-b>": true, // 向上滚动一页由 Vim 处理
-        "<C-n>": true  // 自动补全下一个由 Vim 处理
+        "<C-n>": true, // 自动补全下一个由 Vim 处理
+        "<C-g>": false, // 显示当前行和进度百分比由 VS Code 处理，避免冲突
+        "<C-y>": false // 交由 VS Code 处理，防止与其它 AI 插件或自定义快捷键冲突
     },
     // --- 语言特定设置 ---
     "[java]": {
@@ -128,9 +147,9 @@
         "editor.autoIndent": "advanced",
         // 快速建议设置
         "editor.quickSuggestions": {
-            "other": true,        // 其他位置启用建议
-            "comments": false,    // 注释中禁用建议
-            "strings": true       // 字符串中启用建议
+            "other": true, // 其他位置启用建议
+            "comments": false, // 注释中禁用建议
+            "strings": true // 字符串中启用建议
         },
         // 使用 Red Hat YAML 扩展作为默认格式化工具
         "editor.defaultFormatter": "redhat.vscode-yaml"
@@ -141,15 +160,16 @@
     },
     "[jsonc]": {
         // JSON with Comments 文件使用内置 JSON 格式化工具
-        "editor.defaultFormatter": "vscode.json-language-features"
+        "editor.defaultFormatter": "vscode.json-language-features",
+        "editor.formatOnSave": true
     },
     "[xml]": {
         // 使用 Red Hat XML 扩展作为默认格式化工具
         "editor.defaultFormatter": "redhat.vscode-xml",
         // XML 文件保存时自动格式化
-        "editor.formatOnSave": true,
+        "editor.formatOnSave": false,
         // XML 文件粘贴时自动格式化
-        "editor.formatOnPaste": true,
+        "editor.formatOnPaste": false,
         // 仅格式化修改的部分
         "editor.formatOnSaveMode": "modifications"
     },
@@ -172,19 +192,10 @@
     // 禁用 Gradle 项目导入（不使用 Gradle）
     "java.import.gradle.enabled": false,
     // 保存时自动整理 import 语句
-    "java.saveActions.organizeImports": true,
-    // 常用静态成员自动补全（在输入时优先显示）
-    "java.completion.favoriteStaticMembers": [
-        "org.junit.Assert.*",                      // JUnit 4 斷言
-        "org.junit.jupiter.api.Assertions.*",      // JUnit 5 斷言
-        "java.util.Objects.*",                     // Objects 工具類
-        "org.mockito.ArgumentMatchers.*",          // Mockito 參數匹配器
-        "org.mockito.Mockito.*"                    // Mockito 核心 API
-    ],
+    // "java.saveActions.organizeImports": true,
     // --- Red Hat 扩展设置 ---
     // 禁用 Red Hat 扩展的遥测数据收集
     "redhat.telemetry.enabled": false,
-    
     // --- 工作区颜色自定义 ---
     // 自定义状态栏颜色（深青色背景，白色文字）
     "workbench.colorCustomizations": {
@@ -194,27 +205,21 @@
         "statusBar.foreground": "#ffffff",
         "statusBar.debuggingForeground": "#ffffff"
     },
-    
     // --- 文件资源管理器设置 ---
     // 删除文件时不显示确认对话框
     "explorer.confirmDelete": false,
-    
     // --- JavaScript/TypeScript 设置 ---
     // 移动文件时自动更新 import 路径
     "javascript.updateImportsOnFileMove.enabled": "always",
-    
     // --- 安全性设置 ---
     // 允许直接打开不受信任的文件（不显示警告）
     "security.workspace.trust.untrustedFiles": "open",
-    
     // --- 调试设置 ---
     // 启用通过链接进行 JavaScript 调试
     "debug.javascript.debugByLinkOptions": "on",
-    
     // --- 工作区启动设置 ---
     // 启动时不显示任何编辑器（空白工作区）
     "workbench.startupEditor": "none",
-    
     // --- Java 运行时设置 ---
     // 配置多个 Java 版本供项目选择
     "java.configuration.runtimes": [
@@ -225,57 +230,34 @@
         {
             "name": "JavaSE-17",
             "path": "/usr/lib/jvm/java-17-openjdk",
-            "default": true  // 默认使用 Java 17
+            "default": true // 默认使用 Java 17
         },
         {
             "name": "JavaSE-21",
             "path": "/usr/lib/jvm/java-21-openjdk"
         }
     ],
-    
     // --- 启动配置 ---
     // 调试和启动配置（目前为空）
     "launch": {
         "configurations": [],
         "compounds": []
     },
-    
     // --- 编辑器 Unicode 设置 ---
     // 不突出显示非基本 ASCII 字符（如中文、日文等）
     "editor.unicodeHighlight.nonBasicASCII": false,
-    
     // --- Git 设置 ---
     // 自动获取远端更新（后台执行）
     "git.autofetch": true,
     // 不建议智能提交消息
     "git.suggestSmartCommit": false,
-    
     // --- 主题设置 ---
     // 使用默认深色主题
     "workbench.colorTheme": "Default Dark+",
-    // 增加代码行高，方便 AI 修改代码时通过 diff 视图清晰对比改动
-    "editor.lineHeight": 24,
-    // 丝滑的光标动画
-    "editor.cursorSmoothCaretAnimation": "on",
     // 开启括号对彩色，方便在嵌套严重的 Java 代码中肉眼定位
     "editor.bracketPairColorization.enabled": true,
     // 括号对引导线在活动括号对时显示
     "editor.guides.bracketPairs": "active",
-    
-    // --- Cursor AI 建议配置 ---
-    // Cursor AI 通用指令（指导 AI 的行为偏好）
-    "cursor.general.instructions": "解释一律用中文。写 Java 优先 Java17+（Stream/Optional），实体类优先 Lombok，给出可直接复制的代码。",
-    // 启用 Cursor Composer（AI 辅助编写功能）
-    "cursor.composer.enabled": true,
-    // Composer 建议模式：总是显示建议
-    "cursor.composer.suggestionMode": "always",
-    // 使用新版本的文件选择器
-    "cursor.composer.cmdPFilePicker2": true,
-    // 终端使用命令历史记录
-    "cursor.terminal.useCommandHistory": true,
-    // 启用 C++ 语言支持
-    "cursor.cpp.enable": true,
-    
     // --- Diff 视图设置（更适合 Review AI 改动） ---
     // 并排显示差异（左旧右新）
     "diffEditor.renderSideBySide": true,
@@ -283,12 +265,93 @@
     "diffEditor.wordWrap": "on",
     // 不忽略行尾空白差异（精确显示所有变更）
     "diffEditor.ignoreTrimWhitespace": false,
-    
     // --- 代码动作设置 ---
     // 建议：避免与 Java saveActions 重复整理 imports
     // 仅在明确请求时执行自动修正（避免与 Java 扩展的 import 整理冲突）
     "editor.codeActionsOnSave": {
         "source.fixAll": "explicit"
     },
-    "window.newWindowProfile": "默认"
+    "window.newWindowProfile": "默认",
+    "http.useLocalProxyConfiguration": false,
+    "debug.autoExpandLazyVariables": "on",
+    "java.debug.settings.maxStringLength": 10000,
+    "java.debug.settings.showStaticVariables": true,
+    "java.debug.settings.showQualifiedNames": true,
+    "java.debug.settings.showLogicalStructure": true,
+    // --- 🛠️ 终端与系统优化 ---
+    "terminal.integrated.fontFamily": "'JetBrains Mono', monospace",
+    "terminal.integrated.fontSize": 14,
+    "terminal.integrated.cursorBlinking": true,
+    // ===== 让“Tab”更像人而不是 AI 的遥控器 =====
+    // 1) Tab 优先缩进，避免“按一下 Tab 自动把你代码重写”
+    // "editor.tabCompletion": "off",
+    // // 2) 建议接受用 Enter，减少误触（尤其 Vim 模式更干净）
+    // "editor.acceptSuggestionOnEnter": "on",
+    // // 3) 少点自动弹窗，减少干扰
+    // "editor.quickSuggestions": {
+    //     "other": "on",
+    //     "comments": "off",
+    //     "strings": "off"
+    // },
+    // "editor.suggestSelection": "first",
+    // "editor.inlineSuggest.enabled": true,
+    // ===== Cursor / Copilot 类 AI 行为控制（不同版本键名可能有差异）=====
+    // 如果你的 Cursor 支持这些键：能显著减少“降智”和误触。
+    // 1) 只在手动触发时给建议（更稳）,输入特定字符（如 Java 中的 . 或 CSS 中的 :）时自动触发补全
+    // "editor.suggestOnTriggerCharacters": true,
+    // 2) 降低 AI 抢焦点概率，禁止编辑器简单粗暴地把“文件里出现过的单词”推荐给你
+    "editor.suggest.showWords": false,
+    // "editor.suggest.showSnippets": true,
+    // ===== 性能（Cursor 变慢常见兜底） =====
+    "files.watcherExclude": {
+        "**/target/**": true,
+        "**/dist/**": true,
+        "**/build/**": true,
+        "**/.gradle/**": true,
+        "**/.mvn/**": true,
+        "**/node_modules/**": true
+    },
+    "files.exclude": { // 隐藏不必要的文件
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/node_modules": true // 隐藏 node_modules 文件夹
+    },
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/*.code-search": true,
+        "**/.git": true,
+        "**/.idea": true,
+        "**/.DS_Store": true
+    },
+    "workbench.settings.applyToAllProfiles": [],
+    // --- Vim 输入法自动切换 ---
+    // --- Vim 输入法自动切换配置 ---
+    "vim.autoSwitchInputMethod.enable": true,
+    // 获取当前输入法状态的命令
+    "vim.autoSwitchInputMethod.obtainIMCmd": "/usr/bin/fcitx5-remote",
+    // 这里的逻辑是：
+    // 当 Fcitx5 处于英文（关闭）状态时，fcitx5-remote 返回 1 (或 0，取决于发行版，请见下方说明)
+    // 当 Fcitx5 处于中文（激活）状态时，fcitx5-remote 返回 2
+    // 设置默认的英文状态 ID。
+    // 在终端运行 `fcitx5-remote` (在英文模式下)，如果返回 1，这里就填 "1"
+    "vim.autoSwitchInputMethod.defaultIM": "1",
+    // 切换输入法的命令模板
+    // {im} 会被替换为 defaultIM 或之前记忆的中文 ID
+    // 但为了稳定，我们通常强制在进入 Normal 模式时关闭 Fcitx5
+    // "vim.autoSwitchInputMethod.switchIMCmd": "/usr/bin/fcitx5-remote -t {im}",
+    // 强制使用 -c (close) 参数，确保切回 Normal 模式时一定是英文
+    "vim.autoSwitchInputMethod.switchIMCmd": "/usr/bin/fcitx5-remote -c",
+    // --- 解决光标/渲染卡顿的可选优化 ---
+    "editor.cursorSmoothCaretAnimation": "off", // 关闭平滑光标，有时能减少输入法干扰
+    "editor.unicodeHighlight.allowedLocales": {
+        "zh-hans": true,
+        "zh-hant": true
+    },
+    // 防止终端渲染问题
+    "terminal.integrated.gpuAcceleration": "off"
 }
