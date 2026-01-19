@@ -256,6 +256,18 @@ window-rule {
     match is-active=false
     opacity 0.9
 }
+// --- 特例规则：特定程序始终不透明 ---
+// 这些程序即使失去焦点，opacity 也会被强制设为 1.0
+window-rule {
+    // 使用正则匹配多个应用 (例如: Firefox 或 VLC 或 图片查看器)
+    // 这里的 | 表示“或”
+    match app-id="firefox|vlc|mpv|imv"
+    
+    // 或者你可以写精确匹配 (如果不用正则，就只写一个)
+    // match app-id="firefox"
+
+    opacity 1.0
+}
 window-rule {
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     match app-id="zoom"
